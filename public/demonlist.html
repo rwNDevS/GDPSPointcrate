@@ -1,3 +1,5 @@
+
+demonlist.html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GDPS Demonlist - Extreme Edition</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
 
     <style>
         :root {
@@ -17,6 +20,7 @@
             --border: #222;
         }
 
+
         .light-mode {
             --bg-body: #f0f2f5;
             --bg-card: #ffffff;
@@ -27,6 +31,7 @@
             --border: #ddd;
         }
 
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-body);
@@ -34,6 +39,7 @@
             margin: 0;
             transition: 0.3s ease;
         }
+
 
         header {
             background: var(--bg-card);
@@ -47,7 +53,9 @@
             z-index: 1000;
         }
 
+
         .nav-group { display: flex; gap: 12px; align-items: center; }
+
 
         .btn {
             background: none;
@@ -63,8 +71,10 @@
             text-transform: uppercase;
         }
 
+
         .btn:hover { border-color: var(--accent); color: var(--accent); }
         .btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
 
         .btn-admin {
             background: #f1c40f;
@@ -76,6 +86,7 @@
             color: #000;
         }
 
+
         main {
             max-width: 1200px;
             margin: 3rem auto;
@@ -85,10 +96,12 @@
             padding: 0 1rem;
         }
 
+
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
 
         .demon-card {
             background: var(--bg-card);
@@ -103,21 +116,25 @@
             transition: 0.2s;
         }
 
+
         .demon-card:hover {
             transform: translateX(10px);
             border-left: 5px solid var(--accent);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
+
         .rank { font-size: 2.2rem; font-weight: 800; min-width: 90px; }
         .info { flex-grow: 1; }
         .title { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+
 
         .diff-icon {
             width: 100px;
             height: 100px;
             object-fit: contain;
         }
+
 
         .separator {
             font-size: 1.5rem;
@@ -126,6 +143,7 @@
             border-bottom: 3px solid var(--accent);
             margin: 2.5rem 0 1.5rem;
         }
+
 
         .modal {
             display: none;
@@ -136,6 +154,7 @@
             justify-content: center;
             align-items: center;
         }
+
 
         .modal-content {
             background: var(--bg-modal);
@@ -149,7 +168,9 @@
             position: relative;
         }
 
+
         .modal-header { display: flex; gap: 30px; margin-bottom: 2rem; }
+
 
         .data-box {
             background: rgba(255,255,255,0.03);
@@ -159,7 +180,9 @@
             margin-bottom: 1rem;
         }
 
+
         .record-list, .history-list { list-style: none; padding: 0; }
+
 
         .close-modal {
             position: absolute;
@@ -168,6 +191,7 @@
             font-size: 2rem;
             cursor: pointer;
         }
+
 
         .theme-toggle {
             position: fixed;
@@ -182,15 +206,17 @@
             cursor: pointer;
         }
 
+
         .hidden { display: none !important; }
 
-        /* ========== ESTILOS AGREGADOS PARA EL MODAL DE DETALLES ========== */
+
         .modal-title {
             font-size: 2rem;
             font-weight: 800;
             color: var(--accent);
             margin-bottom: 1.5rem;
         }
+
 
         .modal-subtitle {
             font-size: 1.3rem;
@@ -201,6 +227,7 @@
             border-bottom: 2px solid var(--accent);
             padding-bottom: 0.5rem;
         }
+
 
         .points-badge {
             display: inline-block;
@@ -214,6 +241,7 @@
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
+
         .history-item {
             background: rgba(255,255,255,0.05);
             padding: 0.8rem 1rem;
@@ -223,6 +251,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
 
         .completador-item {
             background: rgba(33, 150, 243, 0.1);
@@ -235,17 +264,20 @@
             align-items: center;
         }
 
+
         .completador-nombre {
             font-weight: 700;
             font-size: 1.1rem;
             color: var(--text-main);
         }
 
+
         .completador-details {
             color: var(--text-dim);
             font-size: 0.9rem;
             margin-top: 0.3rem;
         }
+
 
         .completador-puntos {
             background: var(--accent);
@@ -256,12 +288,14 @@
             font-size: 0.9rem;
         }
 
+
         .loading-spinner {
             text-align: center;
             padding: 2rem;
             color: var(--text-dim);
             font-size: 1.1rem;
         }
+
 
         .no-data {
             text-align: center;
@@ -270,25 +304,30 @@
             font-style: italic;
         }
 
+
         .modal-show {
             display: flex !important;
             animation: fadeIn 0.3s ease;
         }
+
 
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
+
         .position-change {
             font-weight: 700;
             margin-right: 1rem;
         }
 
+
         .date-text {
             color: var(--text-dim);
             font-size: 0.9rem;
         }
+
 
         .completador-left {
             flex: 1;
@@ -296,9 +335,12 @@
     </style>
 </head>
 
+
 <body>
 
+
 <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+
 
 <header>
     <div class="nav-group">
@@ -307,11 +349,13 @@
         <button class="btn" id="btnLegacy" onclick="changeView('legacy')">Legacy</button>
     </div>
 
+
     <div class="nav-group">
         <a href="top.html" class="btn">TOP</a>
         <a href="reglas.html" class="btn">Reglas</a>
         <a href="formulario.html" id="btnEnviarRun" class="btn hidden">Enviar Run</a>
         <a href="completados.html" id="btnMisRuns" class="btn hidden">Mis Runs</a>
+
 
         <span id="userDisp">Invitado</span>
         <a href="index.html" id="btnLogin" class="btn">Login</a>
@@ -319,6 +363,7 @@
         <button id="btnLogout" class="btn hidden" onclick="logout()">Logout</button>
     </div>
 </header>
+
 
 <main>
     <section id="renderContainer"></section>
@@ -330,7 +375,7 @@
     </aside>
 </main>
 
-<!-- ========== MODAL AGREGADO PARA DETALLES DEL NIVEL ========== -->
+
 <div id="detailModal" class="modal" onclick="closeDetailModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <span class="close-modal" onclick="closeDetailModal()">&times;</span>
@@ -340,10 +385,37 @@
     </div>
 </div>
 
+
 <script>
 const API = 'http://localhost:8040/api';
+
+// Función para obtener la imagen de dificultad de forma inteligente
+function getDifficultyImage(difficulty) {
+    if (!difficulty) return '/extreme.png';
+
+    // Normalizar: convertir a minúsculas y quitar espacios extra
+    const normalized = difficulty.toLowerCase().trim();
+
+    // Buscar la palabra clave en el string
+    if (normalized.includes('extreme')) {
+        return '/extreme.png';
+    } else if (normalized.includes('insane')) {
+        return '/insane.png';
+    } else if (normalized.includes('hard')) {
+        return '/hard.png';
+    } else if (normalized.includes('medium')) {
+        return '/medium.png';
+    } else if (normalized.includes('easy')) {
+        return '/easy.png';
+    }
+
+    // Fallback por defecto
+    return '/extreme.png';
+}
+
 let demons = [];
 let currentView = 'normal';
+
 
 async function init() {
     const res = await fetch(`${API}/demons`);
@@ -353,89 +425,100 @@ async function init() {
     checkAuth();
 }
 
+
 function render() {
     const c = document.getElementById('renderContainer');
     c.innerHTML = '';
+
 
     const list = currentView === 'legacy'
         ? demons.filter(d => d.posicion > 30)
         : demons.filter(d => d.posicion <= 30);
 
+
     list.sort((a,b)=>a.posicion-b.posicion)
         .forEach((d,i)=>c.appendChild(createCard(d, i)));
 }
+
 
 function createCard(d, i) {
     const card = document.createElement('div');
     card.className = 'demon-card';
     card.onclick = () => openDetails(d);
+
+    // Usar la función inteligente para obtener la imagen correcta
+    const imgSrc = getDifficultyImage(d.dificultad);
+
     card.innerHTML = `
         <div class="rank">#${d.posicion}</div>
         <div class="info">
             <div class="title">${d.name}</div>
             <div style="color:var(--text-dim)">Publicado por ${d.creador}</div>
         </div>
-        <img src="${d.dificultad}.png" class="diff-icon">
+        <img src="${imgSrc}" class="diff-icon" alt="${d.dificultad}" onerror="this.style.display='none'">
     `;
     return card;
 }
 
-// ========== FUNCIONES AGREGADAS PARA EL MODAL DE DETALLES ==========
 
 async function openDetails(demon) {
     const modal = document.getElementById('detailModal');
     const content = document.getElementById('modalDetailContent');
-    
-    // Mostrar modal con loading
+
+
     modal.classList.add('modal-show');
     content.innerHTML = '<div class="loading-spinner">Cargando datos del nivel...</div>';
-    
+
+
     try {
-        // Obtener datos del backend
         const [historialRes, completacionesRes] = await Promise.all([
             fetch(`${API}/demons/${demon.idNivel}/historial`),
             fetch(`${API}/completaciones`)
         ]);
-        
+
+
         const historial = await historialRes.json();
         const todasCompletaciones = await completacionesRes.json();
-        
-        // Filtrar completaciones aprobadas para este nivel
+
+
         const completadores = todasCompletaciones.filter(
             c => c.nivel === demon.name && c.estado === 'aprobado'
         );
-        
-        // Calcular puntos
+
+
         const puntos = calcularPuntos(demon.posicion);
-        
-        // Renderizar contenido del modal
+
+
         content.innerHTML = `
             <div class="modal-title">${demon.name}</div>
-            
+
+
             <div class="data-box">
                 <strong>Creador:</strong> ${demon.creador}<br>
                 <strong>Verificador:</strong> ${demon.verificador || 'No especificado'}<br>
                 <strong>Posición actual:</strong> #${demon.posicion}
             </div>
-            
+
+
             <div class="data-box">
                 <strong>Puntos al completar:</strong>
                 <div class="points-badge">🏆 ${puntos} puntos</div>
             </div>
-            
+
+
             <h3 class="modal-subtitle">📊 Historial de Posiciones</h3>
             <div id="historialContainer"></div>
-            
+
+
             <h3 class="modal-subtitle">👥 Personas que lo han completado (${completadores.length})</h3>
             <div id="completadoresContainer"></div>
         `;
-        
-        // Renderizar historial
+
+
         renderHistorial(historial);
-        
-        // Renderizar completadores
         renderCompletadores(completadores);
-        
+
+
     } catch (error) {
         console.error('Error cargando detalles:', error);
         content.innerHTML = `
@@ -447,17 +530,20 @@ async function openDetails(demon) {
     }
 }
 
+
 function renderHistorial(historial) {
     const container = document.getElementById('historialContainer');
-    
+
+
     if (!historial || historial.length === 0) {
         container.innerHTML = '<div class="no-data">No hay historial de cambios de posición</div>';
         return;
     }
-    
-    // Ordenar por fecha (más reciente primero)
+
+
     const historialOrdenado = [...historial].reverse();
-    
+
+
     let html = '<div class="history-list">';
     historialOrdenado.forEach((item, index) => {
         const fecha = new Date(item.fecha).toLocaleDateString('es-CO', {
@@ -467,7 +553,8 @@ function renderHistorial(historial) {
             hour: '2-digit',
             minute: '2-digit'
         });
-        
+
+
         html += `
             <div class="history-item">
                 <span class="position-change">#${item.posicion}</span>
@@ -476,36 +563,43 @@ function renderHistorial(historial) {
         `;
     });
     html += '</div>';
-    
+
+
     container.innerHTML = html;
 }
 
+
 function renderCompletadores(completadores) {
     const container = document.getElementById('completadoresContainer');
-    
+
+
     if (!completadores || completadores.length === 0) {
         container.innerHTML = '<div class="no-data">Aún nadie ha completado este nivel, Se el primero!</div>';
         return;
     }
-    
+
+
     let html = '<div class="record-list">';
-    
-    // Ordenar por posición al completar (más baja primero)
+
+
     const completadoresOrdenados = [...completadores].sort((a, b) => {
         const posA = a.posicionAlCompletar || 999;
         const posB = b.posicionAlCompletar || 999;
         return posA - posB;
     });
-    
+
+
     completadoresOrdenados.forEach((c, index) => {
         const posicionTexto = c.posicionAlCompletar 
             ? `#${c.posicionAlCompletar}` 
             : 'Posición desconocida';
-        
+
+
         const puntosGanados = c.posicionAlCompletar 
             ? calcularPuntos(c.posicionAlCompletar) 
             : 0;
-        
+
+
         html += `
             <div class="completador-item">
                 <div class="completador-left">
@@ -522,15 +616,18 @@ function renderCompletadores(completadores) {
         `;
     });
     html += '</div>';
-    
+
+
     container.innerHTML = html;
 }
+
 
 function calcularPuntos(posicion) {
     if (posicion > 30 || posicion < 1) {
         return 0;
     }
-    
+
+
     const maxPoints = 100;
     const minPoints = 1;
     const decay = (maxPoints - minPoints) / 29;
@@ -538,31 +635,30 @@ function calcularPuntos(posicion) {
     return Math.max(minPoints, Math.round(points));
 }
 
+
 function closeDetailModal(event) {
     const modal = document.getElementById('detailModal');
     if (event) {
-        // Solo cerrar si se hace clic en el fondo o en la X
         if (event.target === modal || event.target.classList.contains('close-modal')) {
             modal.classList.remove('modal-show');
         }
     } else {
-        // Cerrar directamente
         modal.classList.remove('modal-show');
     }
 }
 
-// Cerrar modal con tecla ESC
+
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeDetailModal();
     }
 });
 
-// ========== FIN DE FUNCIONES AGREGADAS ==========
 
 function checkAuth() {
     const user = JSON.parse(localStorage.getItem('usuarioLogeado'));
     if (!user) return;
+
 
     document.getElementById('userDisp').textContent = user.usuario;
     document.getElementById('btnLogin').classList.add('hidden');
@@ -570,14 +666,17 @@ function checkAuth() {
     document.getElementById('btnEnviarRun').classList.remove('hidden');
     document.getElementById('btnMisRuns').classList.remove('hidden');
 
+
     if (user.rol === 'admin')
         document.getElementById('btnAdmin').classList.remove('hidden');
 }
+
 
 function logout() {
     localStorage.removeItem('usuarioLogeado');
     location.reload();
 }
+
 
 function changeView(v) {
     currentView = v;
@@ -585,10 +684,12 @@ function changeView(v) {
     updateViewButtons();
 }
 
+
 function updateViewButtons() {
     const btnNormal = document.getElementById('btnNormal');
     const btnLegacy = document.getElementById('btnLegacy');
-    
+
+
     if (currentView === 'legacy') {
         btnNormal.classList.remove('active');
         btnLegacy.classList.add('active');
@@ -598,17 +699,21 @@ function updateViewButtons() {
     }
 }
 
+
 function toggleTheme() {
     document.body.classList.toggle('light-mode');
 }
+
 
 function updateStats() {
     document.getElementById('sideStats').innerHTML =
         `Total niveles: ${demons.length}<br>Main: 15<br>Extended: 15`;
 }
 
+
 document.addEventListener('DOMContentLoaded', init);
 </script>
+
 
 </body>
 </html>
